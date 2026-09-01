@@ -24,6 +24,7 @@
 #include "blink.h"
 #include "button_input_example.h"
 #include "sdmmc_example.h"
+#include "usb_msc_example.h"
 
 static const char *TAG = "example";
 
@@ -32,11 +33,23 @@ extern "C" void app_main(void)
     configure_led();
     button_input_example_init();
     sdmmc_example_init();
+    usb_msc_example_init();
 
-    ESP_LOGI(TAG, "ESP32-S31-PI development board example initialized"); 
+    ESP_LOGI(TAG, "ESP32-S31-PI development board example initialized");
     while (1)
     {
-        blink_led();
-        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+        uint64_t time_ms = esp_timer_get_time() / 1000;
+        static uint64_t last_time_ms = 0;
+        if (time_ms - last_time_ms >= CONFIG_BLINK_PERIOD)
+        {
+            last_time_ms = time_ms;
+            blink_led();
+        }
+
+        usb_msc_example_run(); // Monitor and process USB MSC events (connect/disconnect)
+
+        // Feed the task watchdog by yielding CPU to IDLE task
+        // Without this, IDLE task cannot feed the watchdog, causing WDT reset
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }

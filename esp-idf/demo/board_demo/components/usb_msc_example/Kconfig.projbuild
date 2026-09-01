@@ -1,0 +1,10 @@
+menu "USB MSC Example Configuration"
+
+    config USB_MSC_EXAMPLE_ENABLE
+        bool "Enable USB MSC example component"
+        default y
+        help
+            Enable this option to use the USB MSC (Mass Storage Class) example component.
+            If disabled, the component initialization function will do nothing.
+
+endmenu
