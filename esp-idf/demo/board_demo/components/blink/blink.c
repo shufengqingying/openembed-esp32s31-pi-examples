@@ -15,7 +15,6 @@ static const char *TAG = "example";
 */
 #define BLINK_GPIO CONFIG_BLINK_GPIO
 
-static uint8_t s_led_state = 0;
 
 #ifdef CONFIG_BLINK_LED_STRIP
 
@@ -71,6 +70,9 @@ void configure_led(void)
 }
 
 #elif CONFIG_BLINK_LED_GPIO
+
+static uint8_t s_led_state = 0;
+
 
 void blink_led(void)
 {
