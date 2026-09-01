@@ -22,12 +22,16 @@
 
 #include "esp_timer.h"
 #include "blink.h"
+#include "button_input_example.h"
+
 
 static const char *TAG = "example";
 
 extern "C" void app_main(void)
 {
     configure_led();
+    button_input_example_init();
+
 
     ESP_LOGI(TAG, "ESP32-S31-PI development board example initialized"); // 添加这行
     while (1)
@@ -35,6 +39,7 @@ extern "C" void app_main(void)
 
         esp_timer_get_time();
         blink_led();
+
         vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
     }
 }

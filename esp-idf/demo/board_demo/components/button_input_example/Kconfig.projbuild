@@ -1,0 +1,48 @@
+menu "Button Input Example Configuration"
+
+    config BUTTON_INPUT_EXAMPLE_ENABLE
+        bool "Enable button input example component"
+        default y
+        help
+            Enable this option to use the button input example component.
+            If disabled, the component initialization function will do nothing.
+
+    if BUTTON_INPUT_EXAMPLE_ENABLE
+
+        config BUTTON_INPUT_EXAMPLE_GPIO
+            int "Boot button GPIO number"
+            range 0 61
+            default 61
+            help
+                GPIO number connected to the boot button.
+                Range: 0-61. Default is 61 (usually BOOT button on many boards).
+
+        config BUTTON_INPUT_EXAMPLE_TASK_PRIORITY
+            int "Button test task priority"
+            range 1 25
+            default 1
+            help
+                Priority of the button input test task.
+                Higher number means higher priority. Default is 1.
+
+        config BUTTON_INPUT_EXAMPLE_TASK_STACK_SIZE
+            int "Button test task stack size"
+            default 4096
+            help
+                Stack size (in bytes) for the button input test task.
+                Default is 4096 bytes (4KB).
+
+
+        config BUTTON_INPUT_EXAMPLE_LONG_PRESS_MS
+            int "Long press time threshold (ms)"
+            range 100 3000
+            default 400
+            help
+                Time threshold in milliseconds to distinguish between short press and long press.
+                If the button is held down longer than this value, it is considered a long press.
+                Range: 100-3000 ms. Default is 1000 ms (1 second).
+
+
+    endif # BUTTON_INPUT_EXAMPLE_ENABLE
+
+endmenu
