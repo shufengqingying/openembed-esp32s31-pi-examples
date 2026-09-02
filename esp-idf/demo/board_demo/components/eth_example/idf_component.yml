@@ -1,0 +1,4 @@
+## IDF Component Manager Manifest File
+dependencies:
+  espressif/lan87xx:
+    version: "^1.1.0"

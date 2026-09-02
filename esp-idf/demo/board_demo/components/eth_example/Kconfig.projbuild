@@ -1,0 +1,129 @@
+menu "Ethernet Example Configuration"
+
+    config ETH_EXAMPLE_ENABLE
+        bool "Enable Ethernet example component"
+        default n
+        help
+            Enable this option to use the Ethernet (LAN8720) example component.
+            If disabled, the component initialization function will do nothing.
+
+    if ETH_EXAMPLE_ENABLE
+
+        config ETH_EXAMPLE_PHY_ADDR
+            int "LAN8720 PHY address"
+            range 0 31
+            default 0
+            help
+                PHY address of the LAN8720.
+                Default: 0 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_MDC_GPIO
+            int "MDC GPIO number"
+            range 0 61
+            default 16
+            help
+                GPIO pin for MDC (Management Data Clock).
+                Default: GPIO16 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_MDIO_GPIO
+            int "MDIO GPIO number"
+            range 0 61
+            default 17
+            help
+                GPIO pin for MDIO (Management Data I/O).
+                Default: GPIO17 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_RMII_CLK_GPIO
+            int "RMII REF_CLK GPIO number"
+            range 0 61
+            default 13
+            help
+                GPIO pin for RMII reference clock (50MHz).
+                Default: GPIO13 (matching board_pins.h definition).
+
+        choice ETH_EXAMPLE_RMII_CLK_SOURCE
+            prompt "RMII 50MHz clock source"
+            default ETH_EXAMPLE_RMII_CLK_EXTERNAL
+            help
+                Select the source of the RMII 50MHz reference clock.
+
+            config ETH_EXAMPLE_RMII_CLK_EXTERNAL
+                bool "External 50MHz oscillator (PHY provides clock to ESP32)"
+                help
+                    The 50MHz clock is provided by an external oscillator or the PHY chip.
+                    ESP32 receives the clock via RMII_REF_CLK pin.
+
+            config ETH_EXAMPLE_RMII_CLK_INTERNAL
+                bool "Internal 50MHz output (ESP32 generates clock for PHY)"
+                help
+                    ESP32 generates the 50MHz clock internally and outputs it to the PHY.
+                    Use this mode if your board does not have an external 50MHz oscillator.
+        endchoice
+
+        config ETH_EXAMPLE_TX_EN_GPIO
+            int "TX_EN GPIO number"
+            range 0 61
+            default 12
+            help
+                GPIO pin for RMII TX_EN.
+                Default: GPIO12 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_TXD0_GPIO
+            int "TXD0 GPIO number"
+            range 0 61
+            default 8
+            help
+                GPIO pin for RMII TXD0.
+                Default: GPIO8 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_TXD1_GPIO
+            int "TXD1 GPIO number"
+            range 0 61
+            default 9
+            help
+                GPIO pin for RMII TXD1.
+                Default: GPIO9 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_CRS_DV_GPIO
+            int "CRS_DV GPIO number"
+            range 0 61
+            default 15
+            help
+                GPIO pin for RMII CRS_DV (Carrier Sense / Data Valid).
+                Default: GPIO15 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_RXD0_GPIO
+            int "RXD0 GPIO number"
+            range 0 61
+            default 19
+            help
+                GPIO pin for RMII RXD0.
+                Default: GPIO19 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_RXD1_GPIO
+            int "RXD1 GPIO number"
+            range 0 61
+            default 18
+            help
+                GPIO pin for RMII RXD1.
+                Default: GPIO18 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_PHY_RST_GPIO
+            int "PHY Reset GPIO number"
+            range 0 61
+            default 14
+            help
+                GPIO pin for PHY hardware reset.
+                Default: GPIO14 (matching board_pins.h definition).
+
+        config ETH_EXAMPLE_TASK_PRIORITY
+            int "Ethernet initialization task priority"
+            range 1 25
+            default 4
+            help
+                Priority of the Ethernet initialization task.
+                Higher number means higher priority.
+
+    endif # ETH_EXAMPLE_ENABLE
+
+endmenu

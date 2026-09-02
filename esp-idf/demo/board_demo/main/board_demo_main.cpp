@@ -25,6 +25,7 @@
 #include "button_input_example.h"
 #include "sdmmc_example.h"
 #include "usb_msc_example.h"
+#include "eth_example.h"
 
 static const char *TAG = "example";
 
@@ -34,6 +35,7 @@ extern "C" void app_main(void)
     button_input_example_init();
     sdmmc_example_init();
     usb_msc_example_init();
+    eth_example_init();
 
     ESP_LOGI(TAG, "ESP32-S31-PI development board example initialized");
     while (1)
