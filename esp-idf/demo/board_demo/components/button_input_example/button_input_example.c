@@ -120,7 +120,7 @@ static void button_test_task(void *pvParameters)
         int level = gpio_get_level(CONFIG_BUTTON_INPUT_EXAMPLE_GPIO);
 
         static bool long_press_detected = false;
-        static bool long_press_logged = false;
+        static bool long_press_logged = true; // Flag to ensure long press is logged only once
         if (level == 0 && current_time - s_button_interrupt_time >= CONFIG_BUTTON_INPUT_EXAMPLE_LONG_PRESS_MS)
         {
             // Log long press event only once

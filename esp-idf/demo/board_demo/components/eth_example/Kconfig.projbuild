@@ -2,7 +2,7 @@ menu "Ethernet Example Configuration"
 
     config ETH_EXAMPLE_ENABLE
         bool "Enable Ethernet example component"
-        default n
+        default y
         help
             Enable this option to use the Ethernet (LAN8720) example component.
             If disabled, the component initialization function will do nothing.

@@ -1,4 +1,28 @@
 dependencies:
+  espressif/esp_lcd_touch:
+    component_hash: 3f85a7d95af876f1a6ecca8eb90a81614890d0f03a038390804e5a77e2caf862
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4.2'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.2.1
+  espressif/esp_lcd_touch_gt911:
+    component_hash: 737bdf29e0823eacf041381e81db2aaf5d378f3b5417df7f415f83319e3e790b
+    dependencies:
+    - name: espressif/esp_lcd_touch
+      registry_url: https://components.espressif.com
+      require: public
+      version: ^1.2.0
+    - name: idf
+      require: private
+      version: '>=5.2'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.2.1
   espressif/lan87xx:
     component_hash: 085305ca93c456f6731f38459f56b585c41c8c752a09a11f3cb55ea1a27c71e9
     dependencies:
@@ -68,11 +92,20 @@ dependencies:
     source:
       type: idf
     version: 6.1.0
+  lvgl/lvgl:
+    component_hash: 184e532558c1c45fefed631f3e235423d22582aafb4630f3e8885c35281a49ae
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 9.5.0
 direct_dependencies:
+- espressif/esp_lcd_touch_gt911
 - espressif/lan87xx
 - espressif/led_strip
 - espressif/usb_host_msc
 - idf
-manifest_hash: 07b111cdf264476eb5e3877e17881238617e7a8e29e63402c3b957e4afee96ae
+- lvgl/lvgl
+manifest_hash: e444c9f49fef669f553d987180d48ca7127d29cf9afff28bf3899b3685ac579d
 target: esp32s31
 version: 3.0.0
