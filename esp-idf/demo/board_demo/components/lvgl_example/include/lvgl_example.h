@@ -17,6 +17,7 @@
 extern "C" {
 #endif
 
+
 #ifdef CONFIG_LVGL_EXAMPLE_ENABLE
 
 /**

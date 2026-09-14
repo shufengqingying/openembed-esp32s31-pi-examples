@@ -13,7 +13,13 @@
     "styles.h",
     "ui.c",
     "ui.h",
+    "ui_image_cactus.c",
+    "ui_image_control.c",
+    "ui_image_icon_help.c",
+    "ui_image_icon_open_embed.c",
+    "ui_image_img_star_1.c",
     "ui_image_img_xiaomaoshao.c",
+    "ui_image_ing_setting.c",
     "vars.h"
   ]
 }

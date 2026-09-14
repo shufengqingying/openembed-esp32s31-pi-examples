@@ -6,7 +6,7 @@ idf_component_register(
         "lvgl_demo_ui.c"   
     INCLUDE_DIRS "include"
     REQUIRES 
-        eez_example                           
+        eez_example   
     PRIV_REQUIRES 
         esp_lcd 
         esp_timer 
