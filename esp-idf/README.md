@@ -230,7 +230,7 @@ This repository provides two parts of examples: a complete comprehensive demonst
 
 ### Comprehensive Demo Example
 
-This example comprehensively demonstrates most of the development board's peripheral functions, including an LCD RGB display + LVGL 9.5 + GT911 touch, RGB WS2812 LEDs, Ethernet, SD card, USB flash drive mounting, and a comprehensive demonstration of a pluggable socket for USB 2.0 peripherals. You can click **[Demo Documentation](../demo/board_demo/README.md)** to view detailed project introduction and usage instructions.
+This example comprehensively demonstrates most of the development board's peripheral functions, including an LCD RGB display + LVGL 9.5 + GT911 touch, RGB WS2812 LEDs, Ethernet, SD card, USB flash drive mounting, and a comprehensive demonstration of a pluggable socket for USB 2.0 peripherals. You can click **[Demo Documentation](demo/board_demo/README.md)** to view detailed project introduction and usage instructions.
 
 ### Other Basic Examples
 
