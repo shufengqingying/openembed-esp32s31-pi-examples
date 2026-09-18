@@ -28,7 +28,7 @@ The following introduces the main components on the front and back of the develo
 |9|ESD Protection Chip|Used for ESD protection of the Ethernet port to prevent transient high voltage from damaging downstream circuits.|
 |10|Ethernet PHY IC|Ethernet PHY chip, connected to the RGMII interface of ESP32-S31 and the RJ45 Ethernet port.|
 |11|5 V to 3.3 V DC/DC Converter|Power regulation circuit that converts 5 V input to 3.3 V output.|
-|12|Onboard Terminal Block|2.0mm pitch 4-pin female header, used for physical connection and fixation of external power or signals.Compatible [m5stack][4] sensor.|
+|12|Onboard Terminal Block|2.0mm pitch 4-pin female header, used for physical connection and fixation of external power or signals. Compatible with GROVE sensor.|
 |13|Reset Button|Press this button to reset the ESP32-S31.|
 |14|Boot Button|Download button. Hold down the Boot button while pressing the Reset button to enter 'Firmware Download' mode. Firmware can be downloaded via the UART port or USB serial/JTAG port.|
 |15|microSD Card Slot|This development board supports 4-bit mode microSD cards.|
@@ -73,33 +73,9 @@ Before powering on, please inspect the development board for any physical damage
 - A USB 2.0 cable (Standard Type-A to Type-C)
 - A computer (Windows, Linux, or macOS)
 
-<div class="custom-note-box">
-  <div class="note-header">
-    <span class="icon">①</span> Note
-  </div>
-  <div class="note-content">
-    Please make sure to use a proper USB cable. Some cables are for charging only and cannot be used for data transfer and programming.
-  </div>
-</div>
-
-<style>
-.custom-note-box {
-  border: 1px solid #8ec0fd;
-  border-radius: 4px;
-  background-color: #dbe1e9;
-  font-family: sans-serif;
-}
-.note-header {
-  background-color: #458dd1; /* Dark blue header bar */
-  color: white;
-  padding: 5px 10px;
-  font-weight: bold;
-}
-.note-content {
-  padding: 10px;
-  color: #333;
-}
-</style>
+> **Note**
+>
+> Please make sure to use a proper USB cable. Some cables are for charging only and cannot be used for data transfer and programming.
 
 ## Hardware Setup
 
@@ -109,39 +85,11 @@ Before powering on, please inspect the development board for any physical damage
 ## Software Setup
 Please refer to the ESP-IDF [Get Started][2] section to learn how to quickly set up the development environment and flash applications to your development board.
 
-<div class="custom-note-box">
-  <div class="note-header">
-    <span class="icon">①</span> Note
-  </div>
-  <div class="note-content">
-    The development board uses the USB port to communicate with the PC. Most operating systems (Windows, Linux, macOS) have the required drivers pre-installed, and the board should be recognized automatically when plugged in. If the device is not recognized or a serial connection cannot be established, please refer to Establish Serial Connection with ESP32-S31 for detailed steps on installing drivers.
-  </div>
-</div>
-
-<style>
-.custom-note-box {
-  border: 1px solid #8ec0fd;
-  border-radius: 4px;
-  background-color: #dbe1e9;
-  font-family: sans-serif;
-}
-.note-header {
-  background-color: #458dd1; /* Dark blue header bar */
-  color: white;
-  padding: 5px 10px;
-  font-weight: bold;
-}
-.note-content {
-  padding: 10px;
-  color: #333;
-}
-</style>
-
-[Establish Serial Connection with ESP32-S31][3]
+> **Note**
+>
+> The development board uses the USB port to communicate with the PC. Most operating systems (Windows, Linux, macOS) have the required drivers pre-installed, and the board should be recognized automatically when plugged in. If the device is not recognized or a serial connection cannot be established, please refer to [Establish Serial Connection with ESP32-S31][3] for detailed steps on installing drivers.
 
 ---
 [1]:https://openembed.com/ "Shenzhen OpenEmbed Measurement and Control Co., Ltd."
 [2]:https://docs.espressif.com/projects/esp-idf/en/latest/esp32s31/get-started/index.html "Get Started"
 [3]:https://docs.espressif.com/projects/esp-idf/en/latest/esp32s31/get-started/establish-serial-connection.html "Establish Serial Connection with ESP32-S31"
-
-[4]:https://m5stack.com/zh-cn
